@@ -26,24 +26,24 @@
             <isset property="conf.dir"/>
         </condition>
     </target>
-    <target name="wsimport-service-BookingService" depends="wsimport-init">
-        <mkdir dir="${build.generated.dir}/jax-wsCache/service/BookingService"/>
-        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/service/BookingService" destdir="${build.generated.dir}/jax-wsCache/service/BookingService" wsdl="${basedir}/${conf-dir}xml-resources/web-services/BookingService/wsdl/BookingService.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" xnocompile="true" xendorsed="true">
-            <depends file="${basedir}/${conf-dir}xml-resources/web-services/BookingService/wsdl/BookingService.wsdl"/>
-            <produces dir="${build.generated.dir}/jax-wsCache/service/BookingService"/>
+    <target name="wsimport-service-NewWebServiceFromWSDL" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/service/NewWebServiceFromWSDL"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/service/NewWebServiceFromWSDL" destdir="${build.generated.dir}/jax-wsCache/service/NewWebServiceFromWSDL" wsdl="${basedir}/${conf-dir}xml-resources/web-services/NewWebServiceFromWSDL/wsdl/BookingService.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" xnocompile="true" xendorsed="true">
+            <depends file="${basedir}/${conf-dir}xml-resources/web-services/NewWebServiceFromWSDL/wsdl/BookingService.wsdl"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/service/NewWebServiceFromWSDL"/>
         </wsimport>
         <copy todir="${build.generated.sources.dir}/jax-ws">
-            <fileset dir="${build.generated.dir}/jax-wsCache/service/BookingService">
+            <fileset dir="${build.generated.dir}/jax-wsCache/service/NewWebServiceFromWSDL">
                 <include name="**/*.java"/>
             </fileset>
         </copy>
-        <copy todir="${build.web.dir}/WEB-INF/wsdl/BookingService">
-            <fileset dir="${basedir}/${conf-dir}xml-resources/web-services/BookingService/wsdl/"/>
+        <copy todir="${build.web.dir}/WEB-INF/wsdl/NewWebServiceFromWSDL">
+            <fileset dir="${basedir}/${conf-dir}xml-resources/web-services/NewWebServiceFromWSDL/wsdl/"/>
         </copy>
     </target>
-    <target name="wsimport-service-clean-BookingService" depends="-init-project">
+    <target name="wsimport-service-clean-NewWebServiceFromWSDL" depends="-init-project">
         <delete dir="${build.generated.sources.dir}/jax-ws/org/netbeans/j2ee/wsdl/bookingservice/java/bookingservice"/>
-        <delete dir="${build.generated.dir}/jax-wsCache/service/BookingService"/>
+        <delete dir="${build.generated.dir}/jax-wsCache/service/NewWebServiceFromWSDL"/>
     </target>
-    <target name="wsimport-service-generate" depends="wsimport-service-BookingService"/>
+    <target name="wsimport-service-generate" depends="wsimport-service-NewWebServiceFromWSDL"/>
 </project>

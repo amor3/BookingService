@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jax-ws xmlns="http://www.netbeans.org/ns/jax-ws/1">
   <services>
-    <service name="BookingService">
-      <implementation-class>service.BookingService</implementation-class>
+    <service name="NewWebServiceFromWSDL">
+      <implementation-class>service.NewWebServiceFromWSDL</implementation-class>
       <wsdl-url>file:/Users/AMore/NetBeansProjects/BookingService/src/java/BookingService.wsdl</wsdl-url>
       <local-wsdl-file>BookingService.wsdl</local-wsdl-file>
       <service-name>BookingServiceService</service-name>
       <port-name>BookingServicePort</port-name>
       <package-name>org.netbeans.j2ee.wsdl.bookingservice.java.bookingservice</package-name>
       <catalog-file>catalog.xml</catalog-file>
-      <use-provider>true</use-provider>
+      <use-provider>false</use-provider>
       <wsimport-options>
         <wsimport-option>
           <wsimport-option-name>extension</wsimport-option-name>

@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<definitions name="BookingService" targetNamespace="http://j2ee.netbeans.org/wsdl/BookingService/java/BookingService"
+<definitions name="BookingService" 
+             targetNamespace="http://j2ee.netbeans.org/wsdl/BookingService/java/BookingService"
              xmlns="http://schemas.xmlsoap.org/wsdl/"
              xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
              xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
              xmlns:xsd1="http://www.mc-boden.se/types/faultTypes"
-             xmlns:tns="http://j2ee.netbeans.org/wsdl/BookingService/java/BookingService" xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/">
+             xmlns:tns="http://j2ee.netbeans.org/wsdl/BookingService/java/BookingService" 
+             xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" 
+             xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
     <types>
         <schema targetNamespace="http://www.mc-boden.se/types/faultTypes"
                 xmlns="http://www.w3.org/2001/XMLSchema" 
@@ -40,6 +43,7 @@
             </input>
             <output name="output1">
                 <soap12:body use="literal" namespace="http://j2ee.netbeans.org/wsdl/BookingService/java/BookingService"/>
+                <soap:header message="tns:fault1" part="fault" use="literal" />
             </output>
             <fault name="fault1">
                 <soap12:fault name="fault1" use="literal" namespace="http://j2ee.netbeans.org/wsdl/BookingService/java/BookingService"/>
