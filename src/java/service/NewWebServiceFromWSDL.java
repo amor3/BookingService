@@ -22,16 +22,17 @@ public class NewWebServiceFromWSDL {
     private AuthorizationServiceService service;
 
     public java.lang.String bookingServiceOperation(java.lang.String username, java.lang.String password, java.lang.String ticketID, java.lang.String creditCardNumber) throws Fault1 {
-
         if(authorizationServiceOperation(username, password)){
-            return "Hejsan";
+            return getBookingID("TICKET_1");
         } else {
             throw new Fault1("User: " + username + " Could not login...", "AuthorizationError");
         }
         
     }
 
-    
+    private String getBookingID(String ticketID){
+        return "Your ticket is booked with ID: 1234";
+    }
     
     
     private boolean authorizationServiceOperation(java.lang.String username, java.lang.String password) {
