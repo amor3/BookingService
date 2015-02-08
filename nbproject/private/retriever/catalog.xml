@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="http://docs.oasis-open.org/wsbpel/2.0/plnktype" uri="docs.oasis-open.org/wsbpel/2.0/plnktype"/>
+    <system systemId="http://schemas.xmlsoap.org/wsdl/soap/" uri="schemas.xmlsoap.org/wsdl/soap/index.xsd"/>
+    <system systemId="http://www.w3.org/2000/10/XMLSchema" uri="www.w3.org/2000/10/xmlschema"/>
+    <system systemId="http://www.snowboard-info.com/EndorsementSearch.wsdl" uri="www.snowboard-info.com/EndorsementSearch.wsdl.xml"/>
+    <system systemId="http://schemas.xmlsoap.org/wsdl/soap12/" uri="schemas.xmlsoap.org/wsdl/soap12/index.xml"/>
+</catalog>
