@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions name="BookingService" targetNamespace="http://j2ee.netbeans.org/wsdl/BookingService/java/BookingService"
+    xmlns="http://schemas.xmlsoap.org/wsdl/"
+    xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://j2ee.netbeans.org/wsdl/BookingService/java/BookingServiceWSDL" xmlns:ns="http://j2ee.netbeans.org/wsdl/BookingService/java/BookingService" xmlns:plnk="http://docs.oasis-open.org/wsbpel/2.0/plnktype" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+    <types/>
+    <message name="BookingServiceOperationRequest">
+        <part name="username" type="xsd:string"/>
+        <part name="password" type="xsd:string"/>
+        <part name="ticketID" type="xsd:string"/>
+        <part name="creditCardNumber" type="xsd:string"/>
+    </message>
+    <message name="BookingServiceOperationResponse">
+        <part name="bookingID" type="xsd:string"/>
+    </message>
+    <message name="BookingServiceOperationFault">
+        <part name="error" type="xsd:string"/>
+    </message>
+    <portType name="BookingServicePortType">
+        <operation name="BookingServiceOperation">
+            <input name="input1" message="ns:BookingServiceOperationRequest"/>
+            <output name="output1" message="ns:BookingServiceOperationResponse"/>
+            <fault name="fault1" message="ns:BookingServiceOperationFault"/>
+        </operation>
+    </portType>
+    <binding name="BookingServiceBinding" type="ns:BookingServicePortType">
+        <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <operation name="BookingServiceOperation">
+            <soap:operation/>
+            <input name="input1">
+                <soap:body use="literal" namespace="http://j2ee.netbeans.org/wsdl/BookingService/java/BookingService"/>
+            </input>
+            <output name="output1">
+                <soap:body use="literal" namespace="http://j2ee.netbeans.org/wsdl/BookingService/java/BookingService"/>
+            </output>
+            <fault name="fault1">
+                <soap:fault name="fault1" use="literal" namespace="http://j2ee.netbeans.org/wsdl/BookingService/java/BookingService"/>
+            </fault>
+        </operation>
+    </binding>
+    <service name="BookingServiceService">
+        <port name="BookingServicePort" binding="ns:BookingServiceBinding">
+            <soap:address location="http://localhost:${HttpDefaultPort}/BookingServiceService/BookingServicePort"/>
+        </port>
+    </service>
+    <plnk:partnerLinkType name="BookingService">
+        <!-- A partner link type is automatically generated when a new port type is added. Partner link types are used by BPEL processes. 
+In a BPEL process, a partner link represents the interaction between the BPEL process and a partner service. Each partner link is associated with a partner link type.
+A partner link type characterizes the conversational relationship between two services. The partner link type can have one or two roles.-->
+        <plnk:role name="BookingServicePortTypeRole" portType="ns:BookingServicePortType"/>
+    </plnk:partnerLinkType>
+</definitions>
