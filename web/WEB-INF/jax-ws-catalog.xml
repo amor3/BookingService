@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
     <system systemId="file:/Users/AMore/NetBeansProjects/BookingService/src/java/BookingService.wsdl" uri="src/conf/xml-resources/web-services/NewWebServiceFromWSDL/wsdl/BookingService.wsdl"/>
-    <system systemId="http://localhost:8080/AuthorizationServiceService/AuthorizationService?wsdl" uri="src/conf/xml-resources/web-service-references/AuthorizationService/wsdl/localhost_8080/AuthorizationServiceService/AuthorizationService.wsdl"/>
+    <system systemId="http://localhost:8080/AuthorizationServiceService/AuthorizationService?wsdl" uri="wsdl/localhost_8080/AuthorizationServiceService/AuthorizationService.wsdl"/>
 </catalog>
