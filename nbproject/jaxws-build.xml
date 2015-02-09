@@ -43,6 +43,22 @@
         <delete dir="${build.generated.sources.dir}/jax-ws/service"/>
         <delete dir="${build.generated.dir}/jax-wsCache/AuthorizationService"/>
     </target>
+    <target name="wsimport-client-TicketServiceFromWSDL" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/TicketServiceFromWSDL"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/TicketServiceFromWSDL" destdir="${build.generated.dir}/jax-wsCache/TicketServiceFromWSDL" wsdl="${basedir}/${conf-dir}xml-resources/web-service-references/TicketServiceFromWSDL/wsdl/localhost_8080/TicketServiceService/TicketServiceFromWSDL.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:8080/TicketServiceService/TicketServiceFromWSDL?wsdl" xnocompile="true" xendorsed="true" package="service">
+            <depends file="${basedir}/${conf-dir}xml-resources/web-service-references/TicketServiceFromWSDL/wsdl/localhost_8080/TicketServiceService/TicketServiceFromWSDL.wsdl"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/TicketServiceFromWSDL"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/TicketServiceFromWSDL">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-TicketServiceFromWSDL" depends="-init-project">
+        <delete dir="${build.generated.sources.dir}/jax-ws/service"/>
+        <delete dir="${build.generated.dir}/jax-wsCache/TicketServiceFromWSDL"/>
+    </target>
     <target name="wsimport-service-NewWebServiceFromWSDL" depends="wsimport-init">
         <mkdir dir="${build.generated.dir}/jax-wsCache/service/NewWebServiceFromWSDL"/>
         <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/service/NewWebServiceFromWSDL" destdir="${build.generated.dir}/jax-wsCache/service/NewWebServiceFromWSDL" wsdl="${basedir}/${conf-dir}xml-resources/web-services/NewWebServiceFromWSDL/wsdl/BookingService.wsdl" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" xnocompile="true" xendorsed="true">
@@ -62,6 +78,6 @@
         <delete dir="${build.generated.sources.dir}/jax-ws/org/netbeans/j2ee/wsdl/bookingservice/java/bookingservice"/>
         <delete dir="${build.generated.dir}/jax-wsCache/service/NewWebServiceFromWSDL"/>
     </target>
-    <target name="wsimport-client-generate" depends="wsimport-client-AuthorizationService"/>
+    <target name="wsimport-client-generate" depends="wsimport-client-AuthorizationService, wsimport-client-TicketServiceFromWSDL"/>
     <target name="wsimport-service-generate" depends="wsimport-service-NewWebServiceFromWSDL"/>
 </project>

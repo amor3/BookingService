@@ -18,6 +18,8 @@ import org.netbeans.j2ee.wsdl.bookingservice.java.bookingservice.Fault1;
 @BindingType(value = "http://java.sun.com/xml/ns/jaxws/2003/05/soap/bindings/HTTP/")
 @Stateless
 public class NewWebServiceFromWSDL {
+    @WebServiceRef(wsdlLocation = "WEB-INF/wsdl/localhost_8080/TicketServiceService/TicketServiceFromWSDL.wsdl")
+    private TicketServiceService service_1;
     @WebServiceRef(wsdlLocation = "WEB-INF/wsdl/localhost_8080/AuthorizationServiceService/AuthorizationService.wsdl")
     private AuthorizationServiceService service;
 
@@ -31,7 +33,7 @@ public class NewWebServiceFromWSDL {
     }
 
     private String getBookingID(String ticketID){
-        return "Your ticket is booked with ID: 1234";
+        return ticketServiceOperation(ticketID);
     }
     
     
@@ -40,6 +42,13 @@ public class NewWebServiceFromWSDL {
         // If the calling of port operations may lead to race condition some synchronization is required.
         service.AuthorizationServicePortType port = service.getAuthorizationServicePort();
         return port.authorizationServiceOperation(username, password);
+    }
+
+    private String ticketServiceOperation(java.lang.String ticketID) {
+        // Note that the injected javax.xml.ws.Service reference as well as port objects are not thread safe.
+        // If the calling of port operations may lead to race condition some synchronization is required.
+        service.TicketServicePortType port = service_1.getTicketServicePort();
+        return port.ticketServiceOperation(ticketID);
     }
     
     
