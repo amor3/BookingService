@@ -33,7 +33,7 @@ public class NewWebServiceFromWSDL {
     }
 
     private String getBookingID(String ticketID){
-        return ticketServiceOperation(ticketID);
+        return "Your ticket is now booked with ID: " + ticketServiceOperation(ticketID);
     }
     
     
